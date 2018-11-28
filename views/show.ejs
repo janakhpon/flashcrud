@@ -1,0 +1,44 @@
+<% if(members.length>0) { %>
+  <table class="table table-dark">
+  <thead>
+  <tr>
+  <th scope="col">#</th>
+  <th scope="col">NAME</th>
+  <th scope="col">EMAIL</th>
+  <th scope="col">ADDRESS</th>
+  <th scope="col">OPT1</th>
+  <th scope="col">OPT2</th>
+  </tr>
+  </thead>
+  <tbody>
+
+  <% for(var i=0; i < members.length;i++) { %>
+    <tr>
+    <td><%= i %></td>
+    <td><%= members[i].name %></td>
+    <td><%= members[i].email %></td>
+    <td><%= members[i].address %></td>
+    <td>
+    <a href="/members/edit/<%= members[i]._id%>"<button type="button" rel="tooltip" class="btn btn-info btn-md btn-icon">
+    <i class="fas fa-edit"></i>
+    </button>
+    </a> 
+    </td>
+    <td>
+    <form action="/members/delete/<%= members[i]._id%>" method="post">
+    <button type="submit" rel="tooltip" class="btn btn-danger btn-md btn-icon">
+    <i class="fas fa-trash-alt"></i>
+    </button>
+    </form>
+    </td>
+    </tr>
+    <% } %>  
+ </tbody>
+</table>
+<% } else { %>
+<div> MEMBER LIST IS EMPTY, ADD AND CHECK AGAIN</div>
+<% } %>
+
+
+
+

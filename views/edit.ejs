@@ -1,0 +1,47 @@
+<div class="container">
+  <div class="jumbotron jumbotron-fluid">
+  <div class="container">
+    <h1 class="display-6 font-weight-bold">DEVELOPER INFORMATION</h1>
+    <p class="lead"> Edit the related data carefully for proceeding process</p>
+  </div>
+</div>
+
+<div class="card" style="margin:10px; padding:10px;">
+  
+<div class="card-body">
+  <form action="/members/update/<%= member._id%>" method="POST">
+
+
+
+    <div class="form-group">
+      <label for="name">Your name</label>
+      <input type="text" class="form-control" id="name" name="name" value="<%= member.name %>" required>
+      <small id="nameHelp" class="form-text text-muted">Type your name here. </small>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email address</label>
+      <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp" value="<%= member.email %>" required>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    <div class="form-group">
+      <label for="address">Local address</label>
+      <input type="text" class="form-control" id="address" name="address" value="<%= member.address %>" required>
+       <small id="addressHelp" class="form-text text-muted">Type your local address here. </small>
+    </div>
+    <div class="form-group form-check">
+      <input type="checkbox" class="form-check-input" id="exampleCheck1">
+      <label class="form-check-label" for="exampleCheck1">Check me out</label>
+    </div>
+    <button type="submit" class="btn btn-success">update</button>
+    <button type="reset" class="btn btn-danger">Reset</button>
+
+  </form>
+</div>
+
+</div>
+
+ 
+
+</div>
+
