@@ -2,14 +2,13 @@
   "name": "flashcrud",
   "version": "1.0.0",
   "main": "app.js",
-  "description": "App to create video ideas",
+  "description": "Just to test flash",
   "scripts": {
     "start": "node app.js"
   },
   "license": "MIT",
   "author": "janakhpon",
   "dependencies": {
-    "balanced-match": "^1.0.0",
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",
@@ -20,7 +19,6 @@
     "express-session": "^1.15.6",
     "hogan-express": "^0.5.2",
     "mongoose": "^5.3.14",
-    "morgan": "^1.9.1",
-    "serve-favicon": "^2.5.0"
+    "morgan": "^1.9.1"
   }
 }
