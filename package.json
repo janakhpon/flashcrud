@@ -1,8 +1,13 @@
 {
   "name": "flashcrud",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "app.js",
+  "description": "App to create video ideas",
+  "scripts": {
+    "start": "node app.js"
+  },
   "license": "MIT",
+  "author": "janakhpon",
   "dependencies": {
     "body-parser": "^1.18.3",
     "connect-flash": "^0.1.1",
