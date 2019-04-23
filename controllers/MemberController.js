@@ -50,14 +50,14 @@ memberController.edit = function(req, res) {
   }
   else {
 
-    res.render("../views/edit", {member: member});
+    res.render("../views/edit", {member: member, put : true});
   }
 });
 };
 
 // Update an employee
 memberController.update = function(req, res) {
-  Member.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, email: req.body.email, rank: req.body.address}}, { new: true }, function (err, member) {
+  Member.findByIdAndUpdate(req.params.id, { $set: { name: req.body.name, email: req.body.email, address: req.body.address }}, { new: true }, function (err, member) {
     if (err) {
       console.log(err);
       res.render("../views/edit", {member: req.body});

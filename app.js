@@ -1,15 +1,14 @@
-const
-  express = require('express'),
-  app = express(),
-  ejsLayouts = require('express-ejs-layouts'),
-  mongoose = require('mongoose'),
-  logger = require('morgan'),
-  cookieParser = require('cookie-parser'),
-  bodyParser = require('body-parser'),
-  session = require('express-session'),
-  index = require('./routes/index'),
-  members = require('./routes/members'),
-  flash = require('express-flash-notification');
+const express = require('express');
+const app = express();
+const ejsLayouts = require('express-ejs-layouts');
+const mongoose = require('mongoose');
+const logger = require('morgan');
+const cookieParser = require('cookie-parser');
+const bodyParser = require('body-parser');
+const session = require('express-session');
+const index = require('./routes/index');
+const members = require('./routes/members');
+const flash = require('express-flash-notification');
 
 
 
@@ -18,9 +17,11 @@ const db = require('./config/database');
 
 // Map global promise - get rid of warning
 mongoose.Promise = global.Promise;
+
 // Connect to mongoose
-mongoose.connect(db.mongoURI,{ useNewUrlParser: true })
-  .then(() => console.log('MongoDB Connected...'))
+mongoose
+  .connect(db.mongoURI, { useNewUrlParser: true, useFindAndModify : false })
+  .then(() => console.log("MongoDB Connected..."))
   .catch(err => console.log(err));
 
 
@@ -42,6 +43,8 @@ app.use(session({
 }));
 
 
+
+//Setting Flash noti options
 const flashNotificationOptions = {
   beforeSingleRender: function(item, callback) {
     if (item.type) {
@@ -65,11 +68,10 @@ const flashNotificationOptions = {
 };
 
 
-
+//Declaring
 app.use(flash(app, flashNotificationOptions));
 
 // middleware
-app.use(logger('dev'))
 app.use(cookieParser())
 app.use(bodyParser.urlencoded({extended: true})) // interpret any form data coming in
 app.use(bodyParser.json()) // interpret any json data coming in (eg: using ajax requests)
@@ -77,9 +79,16 @@ app.use(flash())
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
+//set home page
 app.use('/', index);
+
+
+//set member page
 app.use('/members', members);
-const port = process.env.PORT || 3000;
-app.listen(PORT, (err) => {
-	console.log(err || `Server running on ${port}`)
-})
+
+//assing local or global port
+const port = process.env.PORT || 5000;
+
+app.listen(port, () => {
+  console.log(`Server started on port ${port}`);
+});
