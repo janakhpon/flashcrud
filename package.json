@@ -1,12 +1,15 @@
 {
   "name": "flashcrud",
   "version": "1.0.0",
-  "main": "app.js",
   "description": "Just to test flash",
-  "scripts": {
-    "start": "node app.js"
+  "engines": {
+    "node": "8.10.0"
   },
-  "license": "MIT",
+  "main": "app.js",
+  "scripts": {
+    "start": "node app.js",
+    "test": "node test.js"
+  },
   "author": "janakhpon",
   "dependencies": {
     "body-parser": "^1.18.3",
@@ -20,5 +23,15 @@
     "hogan-express": "^0.5.2",
     "mongoose": "^5.3.14",
     "morgan": "^1.9.1"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/janakhpon/flashcrud.git"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "license": "MIT"
 }
