@@ -79,6 +79,15 @@ app.use(flash())
 app.set('view engine', 'ejs')
 app.use(ejsLayouts)
 
+
+
+// Index Route
+app.get('/', (req, res) => {
+  res.render('index');
+});
+
+
+
 //set home page
 app.use('/', index);
 

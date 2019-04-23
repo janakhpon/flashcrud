@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "description": "Just to test flash",
   "engines": {
-    "node": "8.10.0"
+    "node": "8.10.0",
+    "npm" : "3.5.2"
   },
   "main": "app.js",
   "scripts": {
