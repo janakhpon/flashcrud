@@ -13,9 +13,6 @@ const
 
 
 
-const PORT = process.env.PORT || 3000;
-
-
   // DB Config
 const db = require('./config/database');
 
@@ -82,7 +79,7 @@ app.use(ejsLayouts)
 
 app.use('/', index);
 app.use('/members', members);
-
+const port = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
-	console.log(err || `Server running on ${PORT}`)
+	console.log(err || `Server running on ${port}`)
 })
