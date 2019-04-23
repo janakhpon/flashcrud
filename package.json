@@ -31,7 +31,8 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+     "flash"
   ],
   "license": "MIT"
 }
