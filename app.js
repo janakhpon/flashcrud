@@ -1,19 +1,19 @@
 const
-	express = require('express'),
-	app = express(),
-	ejsLayouts = require('express-ejs-layouts'),
-	mongoose = require('mongoose'),
-	logger = require('morgan'),
-	cookieParser = require('cookie-parser'),
-	bodyParser = require('body-parser'),
-	session = require('express-session'),
-	index = require('./routes/index'),
-	members = require('./routes/members'),
-	flash = require('express-flash-notification')
+  express = require('express'),
+  app = express(),
+  ejsLayouts = require('express-ejs-layouts'),
+  mongoose = require('mongoose'),
+  logger = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  session = require('express-session'),
+  index = require('./routes/index'),
+  members = require('./routes/members'),
+  flash = require('express-flash-notification');
 
 
 
-  // DB Config
+// DB Config
 const db = require('./config/database');
 
 // Map global promise - get rid of warning
@@ -39,7 +39,7 @@ app.use(session({
     secure: false,
     expires: new Date('Tuesday, 22 September 2066')
   },
-}))
+}));
 
 
 const flashNotificationOptions = {
