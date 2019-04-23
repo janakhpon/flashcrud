@@ -2,14 +2,13 @@
   "name": "flashcrud",
   "version": "1.0.0",
   "description": "Just to test flash",
-  "engines": {
-    "node": "8.10.0",
-    "npm" : "3.5.2"
-  },
   "main": "app.js",
   "scripts": {
-    "start": "node app.js",
-    "test": "node test.js"
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "10.15.3",
+    "npm": "6.4.1"
   },
   "author": "janakhpon",
   "dependencies": {
@@ -32,7 +31,8 @@
   "keywords": [
     "node",
     "heroku",
-    "express"
+    "express",
+     "flash"
   ],
   "license": "MIT"
 }
