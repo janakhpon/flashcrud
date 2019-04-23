@@ -1,26 +1,31 @@
 const
-	express = require('express'),
-	app = express(),
-	ejsLayouts = require('express-ejs-layouts'),
-	mongoose = require('mongoose'),
-	logger = require('morgan'),
-	cookieParser = require('cookie-parser'),
-	bodyParser = require('body-parser'),
-	session = require('express-session'),
-	index = require('./routes/index'),
-	members = require('./routes/members'),
-	flash = require('express-flash-notification')
+  express = require('express'),
+  app = express(),
+  ejsLayouts = require('express-ejs-layouts'),
+  mongoose = require('mongoose'),
+  logger = require('morgan'),
+  cookieParser = require('cookie-parser'),
+  bodyParser = require('body-parser'),
+  session = require('express-session'),
+  index = require('./routes/index'),
+  members = require('./routes/members'),
+  flash = require('express-flash-notification');
 
 
 
-const
-	PORT = process.env.PORT || 3000,
-	mongoConnectionString = process.env.MONGODB_URI || 'mongodb://localhost/flashcrud'
+// DB Config
+const db = require('./config/database');
 
-// mongoose connection
-mongoose.connect(mongoConnectionString, (err) => {
-	console.log(err || "Connected to MongoDB.")
-})
+// Map global promise - get rid of warning
+mongoose.Promise = global.Promise;
+// Connect to mongoose
+mongoose.connect(db.mongoURI,{ useNewUrlParser: true })
+  .then(() => console.log('MongoDB Connected...'))
+  .catch(err => console.log(err));
+
+
+
+
 
 // Session Middleware REQUIRED
 app.use(session({
@@ -34,7 +39,7 @@ app.use(session({
     secure: false,
     expires: new Date('Tuesday, 22 September 2066')
   },
-}))
+}));
 
 
 const flashNotificationOptions = {
@@ -74,7 +79,7 @@ app.use(ejsLayouts)
 
 app.use('/', index);
 app.use('/members', members);
-
+const port = process.env.PORT || 3000;
 app.listen(PORT, (err) => {
-	console.log(err || `Server running on ${PORT}`)
+	console.log(err || `Server running on ${port}`)
 })
